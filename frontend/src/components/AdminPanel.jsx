@@ -27,8 +27,8 @@ const AdminPanel = () => {
     const fetchData = async () => {
       try {
         const [channelRes, usersRes] = await Promise.all([
-          axios.get("http://localhost:5000/api/channels/admin/requests"),
-          axios.get("http://localhost:5000/api/users/pending"),
+          axios.get("https://trade-techneow-com.onrender.com/api/channels/admin/requests"),
+          axios.get("https://trade-techneow-com.onrender.com/api/users/pending"),
         ]);
         setRequests(channelRes.data);
         setPendingUsers(usersRes.data);
@@ -45,16 +45,16 @@ const AdminPanel = () => {
     const { type, id } = confirmModal;
     try {
       if (type === "approveRequest") {
-        await axios.put(`http://localhost:5000/api/channels/admin/approve/${id}`);
+        await axios.put(`https://trade-techneow-com.onrender.com/api/channels/admin/approve/${id}`);
         setRequests((prev) => prev.filter((req) => req._id !== id));
       } else if (type === "rejectRequest") {
-        await axios.delete(`http://localhost:5000/api/channels/admin/reject/${id}`);
+        await axios.delete(`https://trade-techneow-com.onrender.com/api/channels/admin/reject/${id}`);
         setRequests((prev) => prev.filter((req) => req._id !== id));
       } else if (type === "approveUser") {
-        await axios.post("http://localhost:5000/api/users/approve", { userId: id });
+        await axios.post("https://trade-techneow-com.onrender.com/api/users/approve", { userId: id });
         setPendingUsers((prev) => prev.filter((u) => u._id !== id));
       } else if (type === "rejectUser") {
-        await axios.delete(`http://localhost:5000/api/users/reject/${id}`);
+        await axios.delete(`https://trade-techneow-com.onrender.com/api/users/reject/${id}`);
         setPendingUsers((prev) => prev.filter((u) => u._id !== id));
       }
       alert("Action completed successfully!");

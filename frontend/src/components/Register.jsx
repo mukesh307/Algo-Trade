@@ -37,7 +37,7 @@ const Register = () => {
 
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", form);
+      const res = await axios.post("https://trade-techneow-com.onrender.com/api/auth/register", form);
       localStorage.setItem("userId", res.data.userId);
       toast.success("Registration Successful!");
       setTimeout(() => {

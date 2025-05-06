@@ -23,7 +23,7 @@ const ForgotPassword = () => {
 
     setLoading(true); // Set loading to true when sending OTP
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/forgot-password", { email });
+      const res = await axios.post("https://trade-techneow-com.onrender.com/api/auth/forgot-password", { email });
       setUserId(res.data.userId);
       setStep(2);
       toast.success("OTP sent successfully! Please check your email."); // Success Toast
@@ -42,7 +42,7 @@ const ForgotPassword = () => {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/auth/verify-forgot-otp", { userId, emailOtp: otp });
+      await axios.post("https://trade-techneow-com.onrender.com/api/auth/verify-forgot-otp", { userId, emailOtp: otp });
       setStep(3);
       toast.success("OTP verified successfully! You can now reset your password.");
     } catch (error) {
@@ -57,7 +57,7 @@ const ForgotPassword = () => {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/auth/reset-password", { userId, newPassword });
+      await axios.post("https://trade-techneow-com.onrender.com/api/auth/reset-password", { userId, newPassword });
       toast.success("Password reset successful! You can now login.");
       window.location.href = "/"; // Redirect to the login page after success
     } catch (error) {

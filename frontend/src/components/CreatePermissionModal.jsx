@@ -15,7 +15,7 @@ function CreatePermissionModal({ isOpen, closeModal, refreshPermissions }) {
 
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/permissions', { name, description });
+      const res = await axios.post('https://trade-techneow-com.onrender.com/api/permissions', { name, description });
       setMessage('✅ Permission created successfully!');
       refreshPermissions(); // Refresh the permissions list in the parent component
      

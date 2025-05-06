@@ -37,7 +37,7 @@ const Dashboard = () => {
 
   const fetchMarketPrice = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/mt5/price?symbol=${symbol}`);
+      const res = await fetch(`https://trade-techneow-com.onrender.com/api/mt5/price?symbol=${symbol}`);
       const data = await res.json();
       setMarketPrice(data);
     } catch {
@@ -47,7 +47,7 @@ const Dashboard = () => {
 
   const fetchTradeHistory = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/mt5/trade-history");
+      const res = await fetch("https://trade-techneow-com.onrender.com/api/mt5/trade-history");
       const data = await res.json();
       setTradeHistory(Array.isArray(data.history) ? data.history : []);
     } catch {
@@ -57,7 +57,7 @@ const Dashboard = () => {
 
   const fetchPendingOrders = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/mt5/pending-orders");
+      const res = await fetch("https://trade-techneow-com.onrender.com/api/mt5/pending-orders");
       const data = await res.json();
       setPendingOrders(Array.isArray(data.orders) ? data.orders : []);
     } catch {
@@ -67,7 +67,7 @@ const Dashboard = () => {
 
   const cancelOrder = async (ticket) => {
     try {
-      const res = await fetch("http://localhost:5000/api/mt5/cancel-order", {
+      const res = await fetch("https://trade-techneow-com.onrender.com/api/mt5/cancel-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ticket }),
@@ -86,7 +86,7 @@ const Dashboard = () => {
 
   const placeOrder = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/mt5/place-order`, {
+      const res = await fetch(`https://trade-techneow-com.onrender.com/api/mt5/place-order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ symbol, action }),

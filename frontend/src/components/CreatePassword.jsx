@@ -62,7 +62,7 @@ const CreatePassword = () => {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:5000/api/auth/set-password", {
+      await axios.post("https://trade-techneow-com.onrender.com/api/auth/set-password", {
         userId,
         password,
       });

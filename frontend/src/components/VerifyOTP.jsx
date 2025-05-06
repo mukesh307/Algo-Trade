@@ -39,7 +39,7 @@ const VerifyOTP = () => {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:5000/api/auth/verify-otp", {
+      await axios.post("https://trade-techneow-com.onrender.com/api/auth/verify-otp", {
         userId,
         emailOTP,
         smsOTP,

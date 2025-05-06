@@ -14,7 +14,7 @@ function RolePermission() {
 
   const fetchPermissions = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/permissions');
+      const res = await axios.get('https://trade-techneow-com.onrender.com/api/permissions');
       setPermissions(res.data);
       setFilteredPermissions(res.data);
     } catch (error) {
@@ -45,7 +45,7 @@ function RolePermission() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this permission?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/permissions/${id}`);
+        await axios.delete(`https://trade-techneow-com.onrender.com/api/permissions/${id}`);
         refreshPermissions();
       } catch (error) {
         console.error('Failed to delete permission', error);

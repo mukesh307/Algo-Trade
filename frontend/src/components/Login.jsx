@@ -37,7 +37,7 @@ const Login = ({ setIsLoggedIn }) => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", {
+      const response = await axios.post("https://trade-techneow-com.onrender.com/api/auth/login", {
         emailOrPhone,
         password,
       });

@@ -17,7 +17,7 @@ function RoleList() {
     try {
       setLoading(true);
       setError('');
-      const res = await axios.get('http://localhost:5000/api/roles');
+      const res = await axios.get('https://trade-techneow-com.onrender.com/api/roles');
       setRoles(res.data);
     } catch (err) {
       setError(err?.response?.data?.message || 'Failed to fetch roles.');
@@ -33,7 +33,7 @@ function RoleList() {
 
   const handleDeleteConfirm = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/roles/${deletingRole._id}`);
+      await axios.delete(`https://trade-techneow-com.onrender.com/api/roles/${deletingRole._id}`);
       fetchRoles();
       setDeletingRole(null);
     } catch (err) {
@@ -61,7 +61,7 @@ function RoleList() {
   const handleEditSave = async () => {
     try {
       setSaving(true);
-      await axios.put(`http://localhost:5000/api/roles/${editingRole}`, editFormData);
+      await axios.put(`https://trade-techneow-com.onrender.com/api/roles/${editingRole}`, editFormData);
       fetchRoles();
       setEditingRole(null);
       setEditFormData({ roleName: '', description: '' });

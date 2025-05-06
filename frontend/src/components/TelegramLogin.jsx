@@ -43,7 +43,7 @@ const TelegramLogin = () => {
     setError("");
     try {
       const fullPhone = `${selectedCountryCode}${phone}`;
-      const response = await axios.post("http://localhost:5000/api/auth/send-otp", { phone: fullPhone });
+      const response = await axios.post("https://trade-techneow-com.onrender.com/api/auth/send-otp", { phone: fullPhone });
       toast.success(response.data.message); // Notify OTP sent
       setStep(2); // Go to OTP verification step
     } catch (error) {

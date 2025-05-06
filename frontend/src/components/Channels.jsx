@@ -25,7 +25,7 @@ const Channels = () => {
     const fetchChannelsAndGroups = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:5000/api/channels/${phone}/channels`);
+        const response = await axios.get(`https://trade-techneow-com.onrender.com/api/channels/${phone}/channels`);
         setChannelsAndGroups(response.data.channelsAndGroups || []);
       } catch (error) {
         console.error("Failed to fetch channels:", error);
@@ -44,7 +44,7 @@ const Channels = () => {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/channels/select-channel", {
+      await axios.post("https://trade-techneow-com.onrender.com/api/channels/select-channel", {
         userPhone: phone,
         channelId: selectedItem.id,
         channelName: selectedItem.title,
@@ -65,13 +65,13 @@ const Channels = () => {
     const isConnected = connections[item.id] || false;
     try {
       if (isConnected) {
-        await axios.post("http://localhost:5000/api/channels/disconnect-channel", {
+        await axios.post("https://trade-techneow-com.onrender.com/api/channels/disconnect-channel", {
           userPhone: phone,
           channelId: item.id,
         });
         setConnections((prev) => ({ ...prev, [item.id]: false }));
       } else {
-        await axios.post("http://localhost:5000/api/channels/connect-channel", {
+        await axios.post("https://trade-techneow-com.onrender.com/api/channels/connect-channel", {
           userPhone: phone,
           channelId: item.id,
         });
@@ -90,7 +90,7 @@ const Channels = () => {
     if (selectedItem) {
       setConnections((prev) => ({ ...prev, [selectedItem.id]: false }));
       try {
-        await axios.post("http://localhost:5000/api/channels/disconnect-channel", {
+        await axios.post("https://trade-techneow-com.onrender.com/api/channels/disconnect-channel", {
           userPhone: phone,
           channelId: selectedItem.id,
         });
@@ -104,7 +104,7 @@ const Channels = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:5000/api/auth/logout", { phone });
+      await axios.post("https://trade-techneow-com.onrender.com/api/auth/logout", { phone });
       toast.success("✅ Logout successful!");
       setTimeout(() => {
         window.location.href = "/TelegramLogin";

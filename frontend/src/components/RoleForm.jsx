@@ -19,7 +19,7 @@ function RoleForm() {
       setLoading(true);
       setError('');
       setSuccess('');
-      await axios.post('http://localhost:5000/api/roles', { roleName, description });
+      await axios.post('https://trade-techneow-com.onrender.com/api/roles', { roleName, description });
       setRoleName('');
       setDescription('');
       setSuccess('Role created successfully!');

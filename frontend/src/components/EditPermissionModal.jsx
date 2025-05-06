@@ -22,7 +22,7 @@ function EditPermissionModal({ isOpen, closeModal, refreshPermissions, permissio
 
     setLoading(true);
     try {
-      await axios.put(`http://localhost:5000/api/permissions/${permission._id}`, {
+      await axios.put(`https://trade-techneow-com.onrender.com/api/permissions/${permission._id}`, {
         name,
         description,
       });
