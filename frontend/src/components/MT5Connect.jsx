@@ -22,7 +22,7 @@ const MT5Connect = () => {
 
     setLoading(true);
     try {
-      const response = await fetch("https://trade-techneow-com.onrender.com/api/mt5/connect", {
+      const response = await fetch("http://localhost:5000/api/mt5/connect", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
