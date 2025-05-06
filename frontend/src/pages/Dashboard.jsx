@@ -37,7 +37,7 @@ const Dashboard = () => {
 
   const fetchMarketPrice = async () => {
     try {
-      const res = await fetch(`https://trade-techneow-com.onrender.com/api/mt5/price?symbol=${symbol}`);
+      const res = await fetch(`http://localhost:5000/api/mt5/price?symbol=${symbol}`);
       const data = await res.json();
       setMarketPrice(data);
     } catch {
